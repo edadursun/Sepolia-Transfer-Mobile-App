@@ -106,29 +106,6 @@ export default function Transfer(props){
       } catch(e) {
         alert(e.message)
       }
-    /*
-      try {
-        if(receiverInfo.receiver_mail !== null) {
-          const docRef = doc(db, "users", receiverInfo.receiver_mail);
-          const docSnap = await getDoc(docRef);
-      
-          if (docSnap.exists()) {
-            const data =  await docSnap.data();
-            setReceiverInfo({
-              ...receiverInfo,
-              receiver_walletCode: data.wallet_qrcode
-          });
-          setIsReceiverValid(true);
-          setWalletCode(data.wallet_qrcode);
-          console.log("cüzdan kodu: ", receiverInfo.receiver_walletCode);
-          } else {
-            console.log("Geçersiz kulanıcı");
-          }
-        }
-      } catch(e) {
-        alert(e.message)
-      }
-    */
      // Form is valid, perform the submission logic 
      console.log('Kullanıcı cüzdan adresi bulundu, devam edebilirsiniz'); 
 
@@ -140,7 +117,7 @@ export default function Transfer(props){
 
   const getBalance = async() => {
     console.log("balancea geldi:", senderInfo.sender_wallet_address)
-    const web3 = new Web3(`https://sepolia.infura.io/v3/51c13c3962954218a6d4d90f13edea41`); 
+    const web3 = new Web3(`https://sepolia.infura.io/v3/...`); 
     const balance = await web3.eth.getBalance(senderInfo.sender_wallet_address);
 
     console.log("balance: ", web3.utils.fromWei(balance,"ether"));
@@ -191,7 +168,7 @@ export default function Transfer(props){
 
     setIsResponseValid(false);
 
-    const web3 = new Web3(`https://sepolia.infura.io/v3/51c13c3962954218a6d4d90f13edea41`); 
+    const web3 = new Web3(`https://sepolia.infura.io/v3/....`); 
     const balance = await web3.eth.getBalance(senderInfo.sender_wallet_address);
     console.log("balance: ", web3.utils.fromWei(balance,"ether"));
 
